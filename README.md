@@ -297,3 +297,10 @@ In Index.js file make sure to wrap APP component inside provider component with 
 Summary : How to use redux for global state management
 Implement redux store to store all global states
 Tech Stack : Frontend - store - store.js, userActions.js.
+
+# Milestone 32 : In this milestone, we will add the mail to the global state that we created earlier and access the mail in all pages.
+Key feautures :
+In Login page we will use Dispatch method to store the mail inside global state.
+In all the remaining pages acc the mail stored in global state using useSelector.
+Summary : Now every page can access email through useSelector hook without hardcoding it.
+Tech Stack : Frontend 

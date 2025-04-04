@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { IoIosAdd } from "react-icons/io";
 import { IoIosRemove } from "react-icons/io";
+import { useSelector } from "react-redux";
 
 
 export default function CartProduct({ _id, name, images, quantity, price }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [quantityVal, setQuantityVal] = useState(quantity);
+    const email = useSelector((state)=> state.user.email);
 
 
     useEffect(() => {
@@ -38,7 +40,7 @@ export default function CartProduct({ _id, name, images, quantity, price }) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                email: 'rssujaykiran@gmail.com',
+                email: email,
                 productId: _id,
                 quantity,
             }),
