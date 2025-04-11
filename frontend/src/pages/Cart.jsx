@@ -3,17 +3,19 @@ import NavBar from '../components/NavBar';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import axios from '../axiosConfig';
+
 
 const Cart = () => {
 
 
     const [products, setProducts] = useState([]);
-    const navigate = useNavigate();
-    const email = useSelector((state)=> state.user.email);
+    const userEmail = useSelector((state)=>state.user.email);
+
 
     useEffect(() => {
-      if(!email) return;
-        fetch(`http://localhost:8000/api/v2/product/cartproducts?email=${email}`)
+      if(!userEmail)return;
+        axios.get(`/api/v2/product/cartproducts?email=${userEmail}`)
           .then((res) => {
             if (!res.ok) {
               throw new Error(`HTTP error! status: ${res.status}`);
@@ -27,13 +29,16 @@ const Cart = () => {
           .catch((err) => {
             console.error(" Error fetching products:", err);
           });
-      }, [email]);
+      }, [userEmail]);
    
       console.log("Products:", products);
 
-      const handlePlaceOrder = () =>{
-        navigate("/select-address")
+      const navigate = useNavigate();
+
+      const handlePlaceOrder = ()=>{
+        navigate('/select-address')
       }
+
 
     return (
         <div className='w-full h-screen'>
@@ -51,11 +56,11 @@ const Cart = () => {
                         }
                     </div>
                     <div className='w-full p-4 flex justify-end'>
-                      <button 
-                      onClick={handlePlaceOrder}
-                      className='bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600'>
-                        Place Order
-                      </button>
+                    <button
+                    onClick={handlePlaceOrder}
+                    className='bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600'>
+                   Place Order
+                  </button>
                   </div>
                 </div>
             </div>

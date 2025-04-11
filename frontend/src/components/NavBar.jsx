@@ -74,7 +74,7 @@ const NavBar = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/myproducts"
+                                    to="/myProducts"
                                     className={({ isActive }) =>
                                         isActive
                                             ? "text-white font-semibold px-3 py-2 rounded-md text-sm transition-colors duration-200"
@@ -86,7 +86,7 @@ const NavBar = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/createproduct"
+                                    to="/create"
                                     className={({ isActive }) =>
                                         isActive
                                             ? "text-white font-semibold px-3 py-2 rounded-md text-sm transition-colors duration-200"
@@ -108,22 +108,19 @@ const NavBar = () => {
                                     Cart
                                 </NavLink>
                             </li>
-                       
                             <li>
-                            <NavLink
-                                to="/profile"
-                                className={({ isActive }) =>
-                                    isActive
-                                        ? "block text-white font-semibold px-3 py-2 rounded-md text-base transition-colors duration-200"
-                                        : "block text-gray-200 hover:text-white px-3 py-2 rounded-md text-base transition-colors duration-200"
-                                }
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Profile
-                            </NavLink>
-                        </li>
-                        
-                        <li>
+                                <NavLink
+                                    to="/profile"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "text-white font-semibold px-3 py-2 rounded-md text-sm transition-colors duration-200"
+                                            : "text-gray-200 hover:text-white px-3 py-2 rounded-md text-sm transition-colors duration-200"
+                                    }
+                                >
+                                    Profile
+                                </NavLink>
+                            </li>
+                            <li>
                                 <NavLink
                                     to="/myorders"
                                     className={({ isActive }) =>
@@ -135,6 +132,7 @@ const NavBar = () => {
                                     My Orders
                                 </NavLink>
                             </li>
+
 
                         </ul>
                     </div>
@@ -161,7 +159,7 @@ const NavBar = () => {
                         </li>
                         <li>
                             <NavLink
-                                to="/myproducts"
+                                to="/myProducts"
                                 className={({ isActive }) =>
                                     isActive
                                         ? "block text-white font-semibold px-3 py-2 rounded-md text-base transition-colors duration-200"
@@ -174,7 +172,7 @@ const NavBar = () => {
                         </li>
                         <li>
                             <NavLink
-                                to="/addproducts"
+                                to="/create"
                                 className={({ isActive }) =>
                                     isActive
                                         ? "block text-white font-semibold px-3 py-2 rounded-md text-base transition-colors duration-200"
@@ -197,8 +195,6 @@ const NavBar = () => {
                             >
                                 Cart
                             </NavLink>
-                               
-
                         </li>
                         <li>
                             <NavLink
@@ -208,9 +204,8 @@ const NavBar = () => {
                                         ? "block text-white font-semibold px-3 py-2 rounded-md text-base transition-colors duration-200"
                                         : "block text-gray-200 hover:text-white px-3 py-2 rounded-md text-base transition-colors duration-200"
                                 }
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Profiles
+                                onClick={() => setIsOpen(false)}>
+                                Profile
                             </NavLink>
                         </li>
                         <li>
@@ -226,6 +221,7 @@ const NavBar = () => {
                                 My Orders
                             </NavLink>
                         </li>
+
                     </ul>
                 </div>
             )}

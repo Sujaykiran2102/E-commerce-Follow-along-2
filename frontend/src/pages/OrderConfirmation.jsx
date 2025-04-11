@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+
 import NavBar from '../components/NavBar';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from '../axiosConfig';
 
 
 // 1) Import PayPalScriptProvider & PayPalButtons
@@ -36,7 +37,7 @@ const OrderConfirmation = () => {
             try {
                 // Fetch selected address
                 const addressResponse = await axios.get(
-                    'http://localhost:8000/api/v2/user/addresses',
+                    '/api/v2/user/addresses',
                     {
                         params: { email: email },
                     }
@@ -56,7 +57,7 @@ const OrderConfirmation = () => {
 
                 // Fetch cart products
                 const cartResponse = await axios.get(
-                    'http://localhost:8000/api/v2/product/cartproducts',
+                    '/api/v2/product/cartproducts',
                     {
                         params: { email: email },
                     }
@@ -73,7 +74,7 @@ const OrderConfirmation = () => {
                     name: item.productId.name,
                     price: item.productId.price,
                     images: item.productId.images.map(
-                        (imagePath) => `http://localhost:8000${imagePath}`
+                        (imagePath) => `http://localhost:5000${imagePath}`
                     ),
                     quantity: item.quantity,
                 }));
@@ -132,7 +133,7 @@ const OrderConfirmation = () => {
 
             // Place order
             const response = await axios.post(
-                'http://localhost:8000/api/v2/orders/place-order',
+                '/api/v2/orders/place-order',
                 payload
             );
 
@@ -284,7 +285,7 @@ const OrderConfirmation = () => {
                             <div className='mt-4' style={{ maxWidth: '500px' }}>
                                 <PayPalScriptProvider
                                     options={{
-                                        'client-id': "Abvih2dN0h7vOY_t1-FTxYljsQ6B9B81iAp7_Q17DoqS-htWLxLjGUQ0CWLklpT9lmnbtKQgyaTWDEOG",
+                                        'client-id': "ATAUcP7Tqqxokf4zfZC0JsdJrsXJpp5QHjbFQ8lbIZKaZxLn9BbZ5aZULNwoQuf2x4UVD3TtGZlf0xwM",
                                     }}
                                 >
                                     <PayPalButtons

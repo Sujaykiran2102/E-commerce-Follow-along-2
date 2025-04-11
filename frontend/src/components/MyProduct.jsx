@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import Nav from "../components/nav"
+// import NavBar from "../components/nav"
 
 
 function Myproduct({ _id, name, images, description, price }) {
@@ -29,7 +29,7 @@ function Myproduct({ _id, name, images, description, price }) {
     const handleDelete = async () => {
         try {
             const response = await axios.delete(
-                `http://localhost:8000/api/v2/product/delete-product/${_id}`
+                `http://localhost:5000/api/v2/product/delete-product/${_id}`
             );
             if (response.status === 200) {
                 alert("Product deleted successfully!");
@@ -51,7 +51,7 @@ function Myproduct({ _id, name, images, description, price }) {
                 <div className="w-full">
                     {currentImage && (
                         <img
-                            src={`http://localhost:8000${currentImage}`}
+                            src={`http://localhost:5000${currentImage}`}
                             alt={name}
                             className="w-full h-56 object-cover rounded-lg mb-2"
                         />

@@ -1,13 +1,11 @@
 import React from "react";
-import Login from '../components/login/Login';
+import Login from "../components/login/Login.jsx";
 
-const LoginPage = ()=>{
-    return(
+const LoginPage = () => {
+    return (
         <div>
-            <Login/>
+            <Login />
         </div>
     )
 }
-
 export default LoginPage;
-

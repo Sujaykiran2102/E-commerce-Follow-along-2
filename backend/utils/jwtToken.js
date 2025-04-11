@@ -1,19 +1,17 @@
-const sendToken = (user, statusCode, res) => {
-    const token = user.getJwtToken();
-
+const sendToken = (user,statusCode,res) => {
+    const token = user.getJWTToken();
 
     const options = {
-        expires: new Date(
+        expires: new DataTransfer(
             Date.now() + 90 * 24 * 60 * 60 * 1000
         ),
         httpOnly: true,
+
     };
-    res.status(statusCode).cookie("token", token, options).json({
-        success: true,
+    res.staus(statusCode).cookie("token",token ,options).json({
+        sucess:true,
         token,
         user,
-    });
-};
-
-
+    })
+}
 module.exports = sendToken;

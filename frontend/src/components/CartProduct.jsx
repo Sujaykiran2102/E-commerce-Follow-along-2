@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { IoIosAdd } from "react-icons/io";
 import { IoIosRemove } from "react-icons/io";
-import { useSelector } from "react-redux";
 
 
 export default function CartProduct({ _id, name, images, quantity, price }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [quantityVal, setQuantityVal] = useState(quantity);
-    const email = useSelector((state)=> state.user.email);
 
 
     useEffect(() => {
@@ -34,13 +32,13 @@ export default function CartProduct({ _id, name, images, quantity, price }) {
 
 
     const updateQuantityVal = (quantity) => {
-        fetch('http://localhost:8000/api/v2/product/cartproduct/quantity', {
+        fetch('http://localhost:5000/api/v2/product/cartproduct/quantity', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                email: email,
+                email: 'lakshmi7708671565@gmail.com',
                 productId: _id,
                 quantity,
             }),
@@ -65,7 +63,7 @@ export default function CartProduct({ _id, name, images, quantity, price }) {
         <div className="h-max w-full p-4 flex justify-between border-b border-neutral-300 bg-neutral-100 rounded-lg">
             <div className="flex flex-col gap-y-2">
                 <img
-                    src={`http://localhost:8000${currentImage}`} // Ensure the URL is correct\
+                    src={`http://localhost:5000${currentImage}`} // Ensure the URL is correct\
                     alt={name}
                     className="w-32 h-32 object-cover rounded-lg border border-neutral-300"
                 />
